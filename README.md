@@ -34,3 +34,5 @@ Construction du flux → tests → corrections → enrichissements → publicati
 🎯 **Objectif :**
 
 Rendre lisible et compréhensible la réalité des entreprises en difficulté en France, à travers la data.
+
+**Environnement :** Postman, Talend open studio v8, google colab (python), Power BI, GitHub
