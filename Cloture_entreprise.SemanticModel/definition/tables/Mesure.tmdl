@@ -1,0 +1,40 @@
+table Mesure
+	lineageTag: 1a14c452-63c1-4bc9-9e4b-471a9b6a8461
+
+	measure 'répartition des entreprises en difficulté' = ```
+			
+			DIVIDE(
+			    COUNTROWS(activities_classe),
+			    CALCULATE(COUNTROWS(activities_classe), ALL(activities_classe))
+			)
+			
+			```
+		lineageTag: 7b1ccb32-2bb5-4a27-b37a-4058f33575ad
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'pourcentage des entreprises en difficulté' =
+			
+			DIVIDE(
+			    COUNTROWS(activities_classe),
+			    CALCULATE(COUNTROWS(activities_classe), ALL(activities_classe[secteur]))
+			)
+		lineageTag: 83216c53-92c0-4442-8375-fa06253b10fe
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Value
+		formatString: 0
+		lineageTag: c2b1380e-f99e-458e-8ed0-f1c6a65edf18
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Mesure = calculated
+		mode: import
+		source = {blank()}
+
+	annotation PBI_Id = cfd66fe92d5a4d89a93532d5f4b3c8cb
+

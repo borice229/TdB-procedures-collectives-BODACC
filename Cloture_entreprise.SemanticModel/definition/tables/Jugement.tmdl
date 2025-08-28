@@ -1,0 +1,103 @@
+table Jugement
+	lineageTag: 7e22cef2-415a-4d55-a12a-1e0e3f9a3da6
+
+	column id
+		dataType: string
+		lineageTag: 47eb870b-1d8c-41f3-852e-74219fb8d808
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column type
+		dataType: string
+		lineageTag: 0fd60f5b-3329-400e-b445-c2bd064cc467
+		summarizeBy: none
+		sourceColumn: type
+
+		annotation SummarizationSetBy = Automatic
+
+	column famille
+		dataType: string
+		lineageTag: 179dd1a5-d549-4866-92f6-af13036c8116
+		summarizeBy: none
+		sourceColumn: famille
+
+		annotation SummarizationSetBy = Automatic
+
+	column nature
+		dataType: string
+		lineageTag: 53cff212-ab77-431d-82c8-2c107c541910
+		summarizeBy: none
+		sourceColumn: nature
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d9ad6c6a-d2bb-4153-bb0d-51f25a19f75c
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column complementJugement
+		dataType: string
+		lineageTag: d2da2fac-2376-45b8-aeb3-54d94516ffd6
+		summarizeBy: none
+		sourceColumn: complementJugement
+
+		annotation SummarizationSetBy = Automatic
+
+	column traite_colon
+		dataType: string
+		lineageTag: 2eceab68-523f-4335-a5a5-5dab6fb7dad9
+		summarizeBy: none
+		sourceColumn: traite_colon
+
+		annotation SummarizationSetBy = Automatic
+
+	column procedure_collective
+		dataType: string
+		lineageTag: 253b3580-ce26-4797-affe-6c6d63cafe9e
+		summarizeBy: none
+		sourceColumn: procedure_collective
+
+		annotation SummarizationSetBy = Automatic
+
+	column annee
+		dataType: string
+		lineageTag: 2cab24fd-4ac6-4f9e-b77b-ad9d4b43ec2a
+		summarizeBy: none
+		sourceColumn: annee
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Jugement = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("BORICE", "InsolvencyDB"),
+				    dbo_Jugement = Source{[Schema="dbo",Item="Jugement"]}[Data],
+				    #"Personnalisée ajoutée" = Table.AddColumn(dbo_Jugement, "traite_colon", each Text.Combine({[nature], [complementJugement]}, " ")),
+				    #"Personnalisée ajoutée1" = Table.AddColumn(#"Personnalisée ajoutée", "procedure_collective", each let
+				    texte = Text.Lower([traite_colon])
+				in
+				    if Text.Contains(texte, "sauvegarde") then "Sauvegarde"
+				    else if Text.Contains(texte, "redressement judiciaire") or Text.Contains(texte, "plan de redressement") or Text.Contains(texte, "traitement de sortie de crise") then "Redressement judiciaire"
+				    else if Text.Contains(texte, "liquidation judiciaire") or Text.Contains(texte, "l644-4") or Text.Contains(texte, "de clôture") or Text.Contains(texte, "faillite") or Text.Contains(texte, "interdiction") or Text.Contains(texte, "modifiant le plan de continuation")then "Liquidation judiciaire"
+				    else "Autre"),
+				    #"Lignes filtrées" = Table.SelectRows(#"Personnalisée ajoutée1", each ([procedure_collective] <> "Autre")),
+				    #"Type modifié" = Table.TransformColumnTypes(#"Lignes filtrées",{{"date", type date}}),
+				    #"Personnalisée ajoutée2" = Table.AddColumn(#"Type modifié", "annee", each Date.Year([date])),
+				    #"Lignes filtrées1" = Table.SelectRows(#"Personnalisée ajoutée2", each ([annee] <> null))
+				in
+				    #"Lignes filtrées1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

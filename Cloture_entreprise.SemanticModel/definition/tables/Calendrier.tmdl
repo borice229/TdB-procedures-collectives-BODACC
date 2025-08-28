@@ -1,0 +1,86 @@
+table Calendrier
+	lineageTag: 4a2da4db-eb6f-4c6c-b6a9-5574365330e2
+
+	column Date
+		formatString: General Date
+		lineageTag: 6acac03f-de7e-4bed-b08b-1ec49f388f68
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 4ebc208d-0995-49c7-83da-c55a48a3d954
+			defaultHierarchy: LocalDateTable_18f2407a-e05f-4a0b-bce0-b3f69751352d.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Année
+		formatString: 0
+		lineageTag: e5fabdbd-8b7a-423e-b05d-39f5e1a84cb0
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Année]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mois
+		lineageTag: a62588c5-86f1-4b48-a0fb-b4fec0c0a70b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mois]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NuméroMois
+		formatString: 0
+		lineageTag: 4432b1d2-2fce-4249-a22b-70726f69e678
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [NuméroMois]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jour
+		formatString: 0
+		lineageTag: eaf5021f-afac-4c98-87f9-19850c78c936
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Jour]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomJour
+		lineageTag: c81b2b72-52b1-4de5-bc6f-15fcbfcdf9b3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NomJour]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		lineageTag: 2278d839-a98f-44a9-bf89-952f961df1f5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Trimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendrier = calculated
+		mode: import
+		source = ```
+				
+				ADDCOLUMNS(
+				    CALENDAR(DATE(2022, 1, 1), TODAY()),
+				    "Année", YEAR([Date]),
+				    "Mois", FORMAT([Date], "MMMM"),
+				    "NuméroMois", MONTH([Date]),
+				    "Jour", DAY([Date]),
+				    "NomJour", FORMAT([Date], "dddd"),
+				    "Trimestre", "T" & FORMAT([Date], "Q")
+				)
+				
+				```
+
+	annotation PBI_Id = b0f95055e8b14118ab2c9b6ecbab12a8
+

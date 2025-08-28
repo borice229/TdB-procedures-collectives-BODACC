@@ -1,0 +1,36 @@
+relationship 0a28fb85-a1f9-4af0-8350-75bef68eb054
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Publication.dateparution
+	toColumn: LocalDateTable_ba773dc6-1cbf-4dcc-80ef-a4cdedbe72d4.Date
+
+relationship e8782498-f642-7d6d-35ab-c2834d39fecc
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Jugement.id
+	toColumn: Publication.id
+
+relationship 0112ad2b-c2aa-302a-38b5-6ee9633cee57
+	crossFilteringBehavior: bothDirections
+	fromColumn: Personne_Morale.id
+	toColumn: Jugement.id
+
+relationship c2f162ee-a791-4f76-6fc4-19ddd8f34970
+	crossFilteringBehavior: bothDirections
+	fromColumn: Jugement.id
+	toColumn: Personne_physique.id
+
+relationship 3b369061-a4ee-b7ae-708f-52bab0cc876b
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: activities_classe.id
+	toColumn: Jugement.id
+
+relationship 4ebc208d-0995-49c7-83da-c55a48a3d954
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendrier.Date
+	toColumn: LocalDateTable_18f2407a-e05f-4a0b-bce0-b3f69751352d.Date
+
+relationship 5210af59-b913-678f-785c-7a34b3370bd5
+	fromColumn: Jugement.date
+	toColumn: Calendrier.Date
+

@@ -1,0 +1,29 @@
+model Model
+	culture: fr-FR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: fr-FR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["activities_classe","Jugement","Personne_Morale","Personne_physique","Publication"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.146.705.0 (25.08)+b71502aff0a01340c88f384884ef42771068f115
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table activities_classe
+ref table Jugement
+ref table Personne_Morale
+ref table Personne_physique
+ref table Publication
+ref table DateTableTemplate_8d5de050-8bee-4afc-8f9a-1f35f0a74f9a
+ref table LocalDateTable_ba773dc6-1cbf-4dcc-80ef-a4cdedbe72d4
+ref table Calendrier
+ref table LocalDateTable_18f2407a-e05f-4a0b-bce0-b3f69751352d
+ref table Mesure
+
+ref cultureInfo fr-FR
+

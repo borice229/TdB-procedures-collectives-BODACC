@@ -1,0 +1,120 @@
+table Personne_Morale
+	lineageTag: 9a7b571a-4d50-41e9-83cd-3bfd37519d1f
+
+	column id
+		dataType: string
+		lineageTag: 98ccdfc3-f011-49b2-bab2-3639a51b5bd4
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column typepersonne
+		dataType: string
+		lineageTag: 33b0da06-7792-49df-aa2c-0a9a043ae338
+		summarizeBy: none
+		sourceColumn: typepersonne
+
+		annotation SummarizationSetBy = Automatic
+
+	column numeroIdentification
+		dataType: string
+		lineageTag: 267b8bb9-273e-47e7-b97f-b3179fa55a89
+		summarizeBy: none
+		sourceColumn: numeroIdentification
+
+		annotation SummarizationSetBy = Automatic
+
+	column codeRCS
+		dataType: string
+		lineageTag: d03b58d3-55dd-4680-baf7-0ed1b069b3e0
+		summarizeBy: none
+		sourceColumn: codeRCS
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomGreffeImmat
+		dataType: string
+		lineageTag: a76a3627-058d-433e-8a16-01c3aa48d59b
+		summarizeBy: none
+		sourceColumn: nomGreffeImmat
+
+		annotation SummarizationSetBy = Automatic
+
+	column activite
+		dataType: string
+		lineageTag: da8fc4d9-90cd-41a7-bcac-157418659ed4
+		summarizeBy: none
+		sourceColumn: activite
+
+		annotation SummarizationSetBy = Automatic
+
+	column numeroVoie
+		dataType: string
+		lineageTag: 0223d2c8-ac35-48f3-992d-6d0f45d8ec21
+		summarizeBy: none
+		sourceColumn: numeroVoie
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomVoie
+		dataType: string
+		lineageTag: e5436d29-e45b-463b-95e2-fb61b72ceb00
+		summarizeBy: none
+		sourceColumn: nomVoie
+
+		annotation SummarizationSetBy = Automatic
+
+	column typeVoie
+		dataType: string
+		lineageTag: cb778c7a-0167-4494-9ab9-0854b72bb0ad
+		summarizeBy: none
+		sourceColumn: typeVoie
+
+		annotation SummarizationSetBy = Automatic
+
+	column codePostal
+		dataType: string
+		lineageTag: cfaed9bc-23c6-4774-a602-29f3e809b54c
+		summarizeBy: none
+		sourceColumn: codePostal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ville
+		dataType: string
+		lineageTag: b57bb299-e342-43a9-820f-1fcbf736ed45
+		summarizeBy: none
+		sourceColumn: Ville
+
+		annotation SummarizationSetBy = Automatic
+
+	column denomination
+		dataType: string
+		lineageTag: 2806daef-d1a9-41f9-ad3c-40cedf615ff1
+		summarizeBy: none
+		sourceColumn: denomination
+
+		annotation SummarizationSetBy = Automatic
+
+	column formeJuridique
+		dataType: string
+		lineageTag: 1e90b1cb-4ec2-4f6a-bfa2-ff6744d32697
+		summarizeBy: none
+		sourceColumn: formeJuridique
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Personne_Morale = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("BORICE", "InsolvencyDB"),
+				    dbo_Personne_Morale = Source{[Schema="dbo",Item="Personne_Morale"]}[Data]
+				in
+				    dbo_Personne_Morale
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

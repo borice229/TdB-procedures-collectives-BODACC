@@ -1,0 +1,40 @@
+table activities_classe
+	lineageTag: ef263c06-3c3c-4d3a-8125-f5337c793e84
+
+	column id
+		dataType: string
+		lineageTag: d7d0e19f-3412-4f5a-984c-a1df141a4353
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column activite
+		dataType: string
+		lineageTag: 871cdedb-5838-4829-97fd-5d2ae6b47dfd
+		summarizeBy: none
+		sourceColumn: activite
+
+		annotation SummarizationSetBy = Automatic
+
+	column secteur
+		dataType: string
+		lineageTag: 0daea5fa-1717-4b57-8ed7-9296b75b8565
+		summarizeBy: none
+		sourceColumn: secteur
+
+		annotation SummarizationSetBy = Automatic
+
+	partition activities_classe = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("BORICE", "InsolvencyDB"),
+				    dbo_activities_classe = Source{[Schema="dbo",Item="activities_classe"]}[Data]
+				in
+				    dbo_activities_classe
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

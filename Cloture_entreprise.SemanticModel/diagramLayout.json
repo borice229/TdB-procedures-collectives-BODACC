@@ -1,0 +1,112 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 602.85898815000689,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 560.19942196531792,
+            "y": 0
+          },
+          "nodeIndex": "activities_classe",
+          "nodeLineageTag": "ef263c06-3c3c-4d3a-8125-f5337c793e84",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 561.628612716763,
+            "y": 227.11994219653184
+          },
+          "nodeIndex": "Jugement",
+          "nodeLineageTag": "7e22cef2-415a-4d55-a12a-1e0e3f9a3da6",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 553.86416184971108,
+            "y": 542.65462427745672
+          },
+          "nodeIndex": "Personne_Morale",
+          "nodeLineageTag": "9a7b571a-4d50-41e9-83cd-3bfd37519d1f",
+          "size": {
+            "height": 158.19219653179186,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1207.2817919075144,
+            "y": 215.37427745664743
+          },
+          "nodeIndex": "Personne_physique",
+          "nodeLineageTag": "7c67f0dd-0428-4eed-b123-9c8e63513ae7",
+          "size": {
+            "height": 214.44653179190755,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 28.127167630057812,
+            "y": 207.68208092485548
+          },
+          "nodeIndex": "Publication",
+          "nodeLineageTag": "b26a0915-837d-4e46-99bb-93bc9987ac95",
+          "size": {
+            "height": 196.86705202312135,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 953.8184988981036,
+            "y": 419.18641618497111
+          },
+          "nodeIndex": "Calendrier",
+          "nodeLineageTag": "4a2da4db-eb6f-4c6c-b6a9-5574365330e2",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1463.1546242774566,
+            "y": 250.42341040462429
+          },
+          "nodeIndex": "Mesure",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Toutes les tables",
+      "zoomValue": 85.326757090012322,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Toutes les tables",
+  "defaultDiagram": "Toutes les tables"
+}

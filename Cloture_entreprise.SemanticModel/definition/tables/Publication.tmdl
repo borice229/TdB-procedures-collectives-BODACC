@@ -1,0 +1,143 @@
+table Publication
+	lineageTag: b26a0915-837d-4e46-99bb-93bc9987ac95
+
+	column id
+		dataType: string
+		lineageTag: 3d61cf93-39ad-4e77-8613-e6a7b5e66d95
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column dateparution
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: bef61960-3657-4f00-a6fe-f9e93ac0473d
+		summarizeBy: none
+		sourceColumn: dateparution
+
+		variation Variation
+			isDefault
+			relationship: 0a28fb85-a1f9-4af0-8350-75bef68eb054
+			defaultHierarchy: LocalDateTable_ba773dc6-1cbf-4dcc-80ef-a4cdedbe72d4.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column numeroannonce
+		dataType: string
+		lineageTag: 5a8ff127-169e-4cf4-92d9-5bd4b3eef16d
+		summarizeBy: none
+		sourceColumn: numeroannonce
+
+		annotation SummarizationSetBy = Automatic
+
+	column parution
+		dataType: string
+		lineageTag: ca98e7fc-26bb-41f8-bb1b-252473e4c885
+		summarizeBy: none
+		sourceColumn: parution
+
+		annotation SummarizationSetBy = Automatic
+
+	column numerodepartement_proces
+		dataType: string
+		lineageTag: 5589ca9d-571c-4bf1-a417-702a4b62b22d
+		summarizeBy: none
+		sourceColumn: numerodepartement_proces
+
+		annotation SummarizationSetBy = Automatic
+
+	column departement_nom_officiel_proces
+		dataType: string
+		lineageTag: 6b63f34f-0060-4e61-a8e9-317a1a5e563b
+		summarizeBy: none
+		sourceColumn: departement_nom_officiel_proces
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_code
+		dataType: string
+		lineageTag: d467d989-56fb-4165-a2c2-c067e5d3909a
+		summarizeBy: none
+		sourceColumn: region_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_nom_officiel
+		dataType: string
+		lineageTag: 1378a64b-2c47-4805-a573-f3815078fa81
+		summarizeBy: none
+		sourceColumn: region_nom_officiel
+
+		annotation SummarizationSetBy = Automatic
+
+	column tribunal
+		dataType: string
+		lineageTag: 4e835247-ceac-4ad9-a35f-328d23dd1365
+		summarizeBy: none
+		sourceColumn: tribunal
+
+		annotation SummarizationSetBy = Automatic
+
+	column commercant
+		dataType: string
+		lineageTag: b4bf56d2-abcb-4dcd-be86-6247378668e6
+		summarizeBy: none
+		sourceColumn: commercant
+
+		annotation SummarizationSetBy = Automatic
+
+	column ville_Proces
+		dataType: string
+		lineageTag: 744576ee-986f-41da-9b6f-f280572d2837
+		summarizeBy: none
+		sourceColumn: ville_Proces
+
+		annotation SummarizationSetBy = Automatic
+
+	column SIREN
+		dataType: string
+		lineageTag: 0f4b63a7-881c-44a9-97dd-8a2b3484b1ac
+		summarizeBy: none
+		sourceColumn: SIREN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'cp.1'
+		dataType: int64
+		formatString: 0
+		lineageTag: caa7d868-3848-4eba-8902-cc47fb338435
+		summarizeBy: sum
+		sourceColumn: cp.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'cp.2'
+		dataType: int64
+		formatString: 0
+		lineageTag: e8ec7a9f-d384-4f17-a2ad-192b25333f55
+		summarizeBy: sum
+		sourceColumn: cp.2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Publication = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("BORICE", "InsolvencyDB"),
+				    dbo_Publication = Source{[Schema="dbo",Item="Publication"]}[Data],
+				    #"Type modifié" = Table.TransformColumnTypes(dbo_Publication,{{"dateparution", type date}}),
+				    #"Fractionner la colonne par délimiteur" = Table.SplitColumn(#"Type modifié", "cp", Splitter.SplitTextByDelimiter(",", QuoteStyle.None), {"cp.1", "cp.2"}),
+				    #"Type modifié1" = Table.TransformColumnTypes(#"Fractionner la colonne par délimiteur",{{"cp.1", Int64.Type}, {"cp.2", Int64.Type}})
+				in
+				    #"Type modifié1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

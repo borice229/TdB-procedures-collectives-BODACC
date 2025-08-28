@@ -1,0 +1,152 @@
+table Personne_physique
+	lineageTag: 7c67f0dd-0428-4eed-b123-9c8e63513ae7
+
+	column id
+		dataType: string
+		lineageTag: ccc34c10-1839-4b4c-8e98-7ae1cc7953c2
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column typepersonne
+		dataType: string
+		lineageTag: a9420f76-d9cc-467c-a042-21021cb88c26
+		summarizeBy: none
+		sourceColumn: typepersonne
+
+		annotation SummarizationSetBy = Automatic
+
+	column numeroIdentification
+		dataType: string
+		lineageTag: 534b17fc-2149-44a8-bedd-0647711436fe
+		summarizeBy: none
+		sourceColumn: numeroIdentification
+
+		annotation SummarizationSetBy = Automatic
+
+	column codeRM
+		dataType: string
+		lineageTag: c6ceeb8b-dc0b-4866-b616-7092c7582d64
+		summarizeBy: none
+		sourceColumn: codeRM
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumeroDepartement
+		dataType: string
+		lineageTag: 79888d50-1f4f-432e-8879-da1d9736756c
+		summarizeBy: none
+		sourceColumn: NumeroDepartement
+
+		annotation SummarizationSetBy = Automatic
+
+	column nom
+		dataType: string
+		lineageTag: 8c1bc77a-389a-4ae0-a26b-8ec30241b651
+		summarizeBy: none
+		sourceColumn: nom
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomUsage
+		dataType: string
+		lineageTag: ddb37a61-421c-4fd9-9f0e-107376575299
+		summarizeBy: none
+		sourceColumn: nomUsage
+
+		annotation SummarizationSetBy = Automatic
+
+	column activite
+		dataType: string
+		lineageTag: a86c6e5a-10f1-4394-a4f5-965fd652da28
+		summarizeBy: none
+		sourceColumn: activite
+
+		annotation SummarizationSetBy = Automatic
+
+	column prenom1
+		dataType: string
+		lineageTag: ad8a06e4-36c5-454b-9acb-6d2b5b994e5a
+		summarizeBy: none
+		sourceColumn: prenom1
+
+		annotation SummarizationSetBy = Automatic
+
+	column prenom2
+		dataType: string
+		lineageTag: b4a0cd95-f798-45dc-b30d-878da85124ca
+		summarizeBy: none
+		sourceColumn: prenom2
+
+		annotation SummarizationSetBy = Automatic
+
+	column numeroVoie
+		dataType: string
+		lineageTag: 9580ffd1-466a-40ed-bcd0-7e40bc579d2b
+		summarizeBy: none
+		sourceColumn: numeroVoie
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomVoie
+		dataType: string
+		lineageTag: 3b4977e8-26cb-414b-ba2d-d51bad5741a6
+		summarizeBy: none
+		sourceColumn: nomVoie
+
+		annotation SummarizationSetBy = Automatic
+
+	column typeVoie
+		dataType: string
+		lineageTag: 0a896cc7-2cfc-4ae8-9c38-63337eb94fce
+		summarizeBy: none
+		sourceColumn: typeVoie
+
+		annotation SummarizationSetBy = Automatic
+
+	column codePostal
+		dataType: string
+		lineageTag: 2fa96bd3-f2ea-4239-9662-139363633b77
+		summarizeBy: none
+		sourceColumn: codePostal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ville
+		dataType: string
+		lineageTag: 85ac9dd8-090f-4212-adaf-86b2a76a6eac
+		summarizeBy: none
+		sourceColumn: Ville
+
+		annotation SummarizationSetBy = Automatic
+
+	column complGeographique
+		dataType: string
+		lineageTag: 7f34e8a7-3365-4c96-af38-0068ee1097b2
+		summarizeBy: none
+		sourceColumn: complGeographique
+
+		annotation SummarizationSetBy = Automatic
+
+	column nonInscrit
+		dataType: string
+		lineageTag: c8947336-af61-441e-be83-774b8e2c5bee
+		summarizeBy: none
+		sourceColumn: nonInscrit
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Personne_physique = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("BORICE", "InsolvencyDB"),
+				    dbo_Personne_physique = Source{[Schema="dbo",Item="Personne_physique"]}[Data]
+				in
+				    dbo_Personne_physique
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
