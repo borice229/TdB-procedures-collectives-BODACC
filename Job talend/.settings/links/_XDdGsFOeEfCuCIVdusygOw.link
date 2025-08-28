@@ -1,0 +1,48 @@
+{
+  "itemId" : "_XDdGsFOeEfCuCIVdusygOw",
+  "contextList" : [ {
+    "contextName" : "Default",
+    "repoId" : "_DNI68FktEfCtwZIhKuvgwg",
+    "parameterList" : [ {
+      "id" : "_DN_Pg1ktEfCtwZIhKuvgwg",
+      "name" : "Api_clause"
+    }, {
+      "id" : "_DN_PhFktEfCtwZIhKuvgwg",
+      "name" : "Api_limit"
+    }, {
+      "id" : "_DN_PglktEfCtwZIhKuvgwg",
+      "name" : "Api_refine"
+    }, {
+      "id" : "_DN_PgVktEfCtwZIhKuvgwg",
+      "name" : "base_URL_API"
+    }, {
+      "id" : "_DN_PhVktEfCtwZIhKuvgwg",
+      "name" : "limit_loop"
+    }, {
+      "id" : "_DN_PgFktEfCtwZIhKuvgwg",
+      "name" : "offset"
+    } ]
+  }, {
+    "contextName" : "Default",
+    "repoId" : "_pAC3wFkzEfCtwZIhKuvgwg",
+    "parameterList" : [ {
+      "id" : "_pAfjs1kzEfCtwZIhKuvgwg",
+      "name" : "Base_donnee"
+    }, {
+      "id" : "_pAfjsVkzEfCtwZIhKuvgwg",
+      "name" : "Hote"
+    }, {
+      "id" : "_pAfjtVkzEfCtwZIhKuvgwg",
+      "name" : "mot_de_passe"
+    }, {
+      "id" : "_pAfjtlkzEfCtwZIhKuvgwg",
+      "name" : "parametre_supplementaire"
+    }, {
+      "id" : "_pAfjslkzEfCtwZIhKuvgwg",
+      "name" : "Port"
+    }, {
+      "id" : "_pAfjtFkzEfCtwZIhKuvgwg",
+      "name" : "utilisateur"
+    } ]
+  } ]
+}

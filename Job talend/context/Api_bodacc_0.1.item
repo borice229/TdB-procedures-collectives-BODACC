@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ContextType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmi:id="_DNKJEFktEfCtwZIhKuvgwg" confirmationNeeded="false" name="Default">
+  <contextParameter xmi:id="_DN_PgFktEfCtwZIhKuvgwg" comment="" name="offset" prompt="offset?" promptNeeded="false" repositoryContextId="built-in" type="id_Integer" value="0"/>
+  <contextParameter xmi:id="_DN_PgVktEfCtwZIhKuvgwg" comment="" name="base_URL_API" prompt="base_URL_API?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;https://www.bodacc.fr/api/explore/v2.1/catalog/datasets/annonces-commerciales/records&quot;"/>
+  <contextParameter xmi:id="_DN_PglktEfCtwZIhKuvgwg" comment="" name="Api_refine" prompt="Api_refine?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;familleavis_lib:%22Procédures%20collectives%22&quot;"/>
+  <contextParameter xmi:id="_DN_Pg1ktEfCtwZIhKuvgwg" comment="" name="Api_clause" prompt="Api_clause?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;dateparution%20%3E%20%222023-01-01%22&quot;"/>
+  <contextParameter xmi:id="_DN_PhFktEfCtwZIhKuvgwg" comment="" name="Api_limit" prompt="Api_limit?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;100&quot;"/>
+  <contextParameter xmi:id="_DN_PhVktEfCtwZIhKuvgwg" comment="" name="limit_loop" prompt="limit_loop?" promptNeeded="false" repositoryContextId="built-in" type="id_Integer" value=""/>
+</talendfile:ContextType>

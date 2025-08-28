@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ContextType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmi:id="_pAfjsFkzEfCtwZIhKuvgwg" confirmationNeeded="false" name="Default">
+  <contextParameter xmi:id="_pAfjsVkzEfCtwZIhKuvgwg" comment="" name="Hote" prompt="Hote?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;BORICE&quot;"/>
+  <contextParameter xmi:id="_pAfjslkzEfCtwZIhKuvgwg" comment="" name="Port" prompt="Port?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;1433&quot;"/>
+  <contextParameter xmi:id="_pAfjs1kzEfCtwZIhKuvgwg" comment="" name="Base_donnee" prompt="Base_donnee?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;InsolvencyDB&quot;"/>
+  <contextParameter xmi:id="_pAfjtFkzEfCtwZIhKuvgwg" comment="" name="utilisateur" prompt="utilisateur?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;sa&quot;"/>
+  <contextParameter xmi:id="_pAfjtVkzEfCtwZIhKuvgwg" comment="" name="mot_de_passe" prompt="mot_de_passe?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;sa@123@123&quot;"/>
+  <contextParameter xmi:id="_pAfjtlkzEfCtwZIhKuvgwg" comment="" name="parametre_supplementaire" prompt="parametre_supplementaire?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="&quot;instance=SQLEXPRESS&quot;"/>
+</talendfile:ContextType>
